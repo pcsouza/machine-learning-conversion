@@ -3,6 +3,7 @@ import json
 
 import warmUpExercise
 import plotData
+import computeCost
 
 ## ==================== Part 1: Basic Function ====================
 # Complete warmUpExercise.py
@@ -22,3 +23,19 @@ f.close()
 plotData.plot_data(data)
 
 raw_input("Press Enter to continue")
+
+## =================== Part 3: Gradient descent ===================
+print "Running Gradient Descent ..."
+m = data.shape[0]  # Length of the data array
+X = numpy.array([numpy.ones(m).T, data[:,0]]).T #Add a column of ones to X
+y = data[:,1]
+theta = numpy.zeros(2) #initialize fitting parameters
+
+# Gradient descent settings
+iterations = 1500
+alpha = .01
+
+print "Testing cost calculations with null parameters..."
+print "Test cost value: {}".format(computeCost.J(X,y,theta))
+
+
