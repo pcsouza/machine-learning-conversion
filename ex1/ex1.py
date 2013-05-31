@@ -4,6 +4,7 @@ import json
 import warmUpExercise
 import plotData
 import computeCost
+import gradientDescent
 
 ## ==================== Part 1: Basic Function ====================
 # Complete warmUpExercise.py
@@ -35,7 +36,12 @@ theta = numpy.zeros(2) #initialize fitting parameters
 iterations = 1500
 alpha = .01
 
+# Compute and display initial cost
 print "Testing cost calculations with null parameters..."
 print "Test cost value: {}".format(computeCost.J(X,y,theta))
+
+# Run gradient descent
+theta_final = gradientDescent.grad_des(X, y, theta, alpha, iterations)
+print "Parameters found by gradient descent: {}, {}".format(theta_final[0], theta_final[1])
 
 
